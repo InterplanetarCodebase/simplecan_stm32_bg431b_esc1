@@ -99,7 +99,7 @@ HAL_StatusTypeDef SimpleCan::activateNotification(RxHandler *rxHandler)
 	//_hfdcan1.Instance->RxFifo0Callback = ...;
 #endif
 	_rxHandler = rxHandler;
-	return HAL_FDCAN_ActivateNotification(&_hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0);
+	return HAL_FDCAN_ActivateNotification(&_hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE | FDCAN_IT_RX_FIFO1_NEW_MESSAGE, 0);
 }
 
 HAL_StatusTypeDef SimpleCan::deactivateNotification()
